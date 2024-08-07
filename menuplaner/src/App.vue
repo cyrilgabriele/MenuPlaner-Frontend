@@ -1,6 +1,16 @@
 <template>
   <div class="menu-plan">
     <h1>Weekly Menu</h1>
+    <div id="app">
+    <nav>
+      <ul>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/meal-plans">Meal Plans</router-link></li>
+        <li><router-link to="/profile">Profile</router-link></li>
+      </ul>
+    </nav>
+    <router-view></router-view> <!-- This is where your routed components will be displayed -->
+  </div>
     <hgroup>
       <input type='text' v-model="menuIdeaUser" placeholder="Enter meal ideas">
       <button @click="handleMenuIdeaUser">Submit Ideas</button>

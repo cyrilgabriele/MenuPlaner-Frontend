@@ -1,0 +1,71 @@
+ {
+  role: 'assistant',
+  content: ' {\n' +
+    '\n' +
+    '"Monday_Breakfast": "Oatmeal_with_berries_and_nuts",\n' +
+    '"Monday_Lunch": "Grilled_chicken_salad_with_quinoa_and_avocado",\n' +
+    '"Monday_Dinner": "Ground_beef_stir_fry_with_vegetables",\n' +
+    '\n' +
+    '"Tuesday_Breakfast": "Scrambled_eggs_with_spinach_and_cheese",\n' +
+    '"Tuesday_Lunch": "Black_bean_burrito_bowl",\n' +
+    '"Tuesday_Dinner": "Baked_salmon_with_asparagus_and_roasted_potatoes",\n' +
+    '\n' +
+    '"Wednesday_Breakfast": "Greek_yogurt_with_honey_and_mixed_berries",\n' +
+    '"Wednesday_Lunch": "Turkey_and_vegetable_soup",\n' +
+    '"Wednesday_Dinner": "Spaghetti_Bolognese",\n' +
+    '\n' +
+    '"Thursday_Breakfast": "Avocado_toast_with_poached_eggs",\n' +
+    '"Thursday_Lunch": "Grilled_cheese_sandwich_with_tomato_soup",\n' +
+    '"Thursday_Dinner": "Grilled_chicken_with_roasted_zucchini_and_squash",\n' +
+    '\n' +
+    '"Friday_Breakfast": "Smoked_salmon_and_cream_cheese_toast",\n' +
+    '"Friday_Lunch": "Tuna_salad_with_lettuce_and_whole_grain_bread",\n' +
+    '"Friday_Dinner": "Beef_tacos_with_black_beans_and_avocado",\n' +
+    '\n' +
+    '"Saturday_Breakfast": "Pancakes_with_maple_syrup_and_fresh_fruit",\n' +
+    '"Saturday_Lunch": "Grilled_vegetable_panini",\n' +
+    '"Saturday_Dinner": "Roasted_vegetables_with_quinoa_and_chickpeas",\n' +
+    '\n' +
+    '"Sunday_Breakfast": "French_toast_with_powdered_sugar",\n' +
+    '"Sunday_Lunch": "Egg_salad_sandwich",\n' +
+    '"Sunday_Dinner": "Grilled_steak_with_mashed_potatoes_and_steamed_brocolli",\n' +
+    '\n' +
+    '"Ingredients": [\n' +
+    '"Ground_beef",\n' +
+    '"Eggs",\n' +
+    '"Oats",\n' +
+    '"Berries",\n' +
+    '"Nuts",\n' +
+    '"Chicken_breasts",\n' +
+    '"Quinoa",\n' +
+    '"Avocado",\n' +
+    '"Salmon",\n' +
+    '"Asparagus",\n' +
+    '"Potatoes",\n' +
+    '"Honey",\n' +
+    '"Spinach",\n' +
+    '"Cheese",\n' +
+    '"Black_beans",\n' +
+    '"Yogurt",\n' +
+    '"Milk",\n' +
+    '"Bolognese_sauce",\n' +
+    '"Pasta",\n' +
+    '"Turkey",\n' +
+    '"Zucchini",\n' +
+    '"Squash",\n' +
+    '"Roasted_tomatoes",\n' +
+    '"Cream_cheese",\n' +
+    '"Smoked_salmon",\n' +
+    '"Tomatoes",\n' +
+    '"Lettuce",\n' +
+    '"Whole_grain_bread",\n' +
+    '"Tuna",\n' +
+    '"Tacos",\n' +
+    '"Mixed_berries",\n' +
+    '"Maple_syrup",\n' +
+    '"French_bread",\n' +
+    '"Steak"\n' +
+    ']\n' +
+    '\n' +
+    '}'
+}

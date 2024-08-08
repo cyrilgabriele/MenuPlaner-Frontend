@@ -16,7 +16,7 @@
     .then(response => {
       console.log('This is the axios response: \n', response.data);
       LLMResponse.value = response.data.body //.content if my API is used, .body otherwise
-      console.log("LLM response: ", LLMResponse.value)
+      //console.log("LLM response: ", LLMResponse.value)
       menuIdeaUser.value = ''
     })
     .catch(error => {

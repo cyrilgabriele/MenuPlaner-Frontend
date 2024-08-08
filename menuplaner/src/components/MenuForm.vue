@@ -3,7 +3,6 @@
   import axios from 'axios';
   import AcceptButton from './AcceptButton.vue';
 
-  const acceptButton = ref(null)
   const menuIdeaUser = ref('')
   const LLMResponse = ref('')
   
@@ -16,7 +15,7 @@
     })
     .then(response => {
       console.log('This is the axios response: \n', response.data);
-      LLMResponse.value = response.data.body //.content if my API is used
+      LLMResponse.value = response.data.body //.content if my API is used, .body otherwise
       console.log("LLM response: ", LLMResponse.value)
       menuIdeaUser.value = ''
     })
@@ -37,8 +36,4 @@
     </div>
     <AcceptButton :menuPlan="LLMResponse"/>
   </template>
-  
-  <style scoped>
-  /* Add styles for your form here */
-  </style>
   

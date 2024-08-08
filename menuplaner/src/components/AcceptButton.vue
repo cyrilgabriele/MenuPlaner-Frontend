@@ -9,7 +9,7 @@ function handleAcceptMenu() {
     alert("Button clicked")
     console.log("In handleAcceptMenu")
     console.log("props.menuPlan: ", props.menuPlan)
-    axios.post('http://localhost3000/saveMenu', {
+    axios.post('http://localhost:3000/saveMenu', {
         title: 'Title',
         body: props.menuPlan,
         userId: 444,

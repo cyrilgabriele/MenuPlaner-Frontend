@@ -7,16 +7,17 @@
   const LLMResponse = ref('')
   
   function handleMenuIdeaUser() {
-    axios.post('https://jsonplaceholder.typicode.com/posts', { //for debugging if rate limit is reached
-    //axios.post('http://localhost:3000/menu', { 
+    //axios.post('https://jsonplaceholder.typicode.com/posts', { //for debugging if rate limit is reached
+    axios.post('http://localhost:3000/menu', { 
       title: 'MenuUser444',
       body: menuIdeaUser.value,
       userId: 444,
     })
     .then(response => {
       console.log('This is the axios response: \n', response.data);
-      LLMResponse.value = response.data.body //.content if my API is used, .body otherwise
+      LLMResponse.value = JSON.stringify(response.data)  //.content if my API is used, .body otherwise
       //console.log("LLM response: ", LLMResponse.value)
+      
       menuIdeaUser.value = ''
     })
     .catch(error => {

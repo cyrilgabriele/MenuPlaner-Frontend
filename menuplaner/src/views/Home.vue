@@ -1,5 +1,5 @@
 <script setup>
-  import MenuTable from "../components/MenuTable.vue"
+  //import MenuTable from "../components/MenuTable.vue"
   console.log("HEllo form Home")
 </script>
 
@@ -7,7 +7,6 @@
     <div>
       <h1>Home Page</h1>
       <p>Welcome to the Home Page!</p>
-      <MenuTable />
     </div>
 </template>
   

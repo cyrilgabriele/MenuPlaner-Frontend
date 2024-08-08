@@ -1,3 +1,28 @@
+<script>
+  import { reactive } from 'vue';
+  
+  export default {
+    setup() {
+      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      
+      const menu = reactive({
+        Monday: { Breakfast: '', Lunch: '', Dinner: '' },
+        Tuesday: { Breakfast: '', Lunch: '', Dinner: '' },
+        Wednesday: { Breakfast: '', Lunch: '', Dinner: '' },
+        Thursday: { Breakfast: '', Lunch: '', Dinner: '' },
+        Friday: { Breakfast: '', Lunch: '', Dinner: '' },
+        Saturday: { Breakfast: '', Lunch: '', Dinner: '' },
+        Sunday: { Breakfast: '', Lunch: '', Dinner: '' }
+      });
+  
+      return {
+        days,
+        menu
+      };
+    }
+  }
+</script>
+
 <template>
     <div class="menu-plan">
       <h1>Weekly Menu</h1>
@@ -22,32 +47,7 @@
     </div>
   </template>
   
-  <script>
-  import { reactive } from 'vue';
-  
-  export default {
-    setup() {
-      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-      
-      const menu = reactive({
-        Monday: { Breakfast: '', Lunch: '', Dinner: '' },
-        Tuesday: { Breakfast: '', Lunch: '', Dinner: '' },
-        Wednesday: { Breakfast: '', Lunch: '', Dinner: '' },
-        Thursday: { Breakfast: '', Lunch: '', Dinner: '' },
-        Friday: { Breakfast: '', Lunch: '', Dinner: '' },
-        Saturday: { Breakfast: '', Lunch: '', Dinner: '' },
-        Sunday: { Breakfast: '', Lunch: '', Dinner: '' }
-      });
-  
-      return {
-        days,
-        menu
-      };
-    }
-  }
-  </script>
-  
-  <style scoped>
+<style scoped>
   .menu-plan {
     max-width: 600px;
     margin: auto;
@@ -64,5 +64,4 @@
   th {
     background-color: #f4f4f4;
   }
-  </style>
-  
+</style>

@@ -1,18 +1,10 @@
-<template>
-    <hgroup>
-      <input type="text" v-model="menuIdeaUser" placeholder="Enter meal ideas">
-      <button @click="handleMenuIdeaUser">Submit Ideas</button>
-    </hgroup>
-  </template>
-  
-  <script setup>
+<script setup>
   import { ref } from 'vue';
   import axios from 'axios';
   
   const menuIdeaUser = ref('');
   
   function handleMenuIdeaUser() {
-    //axios.post('https://jsonplaceholder.typicode.com/posts', {
     axios.post('http://localhost:3000/menu', { 
       title: 'MenuUser444',
       body: menuIdeaUser.value,
@@ -27,6 +19,13 @@
     });
   }
   </script>
+
+<template>
+    <hgroup>
+      <input type="text" v-model="menuIdeaUser" placeholder="Enter meal ideas">
+      <button @click="handleMenuIdeaUser">Submit Ideas</button>
+    </hgroup>
+  </template>
   
   <style scoped>
   /* Add styles for your form here */

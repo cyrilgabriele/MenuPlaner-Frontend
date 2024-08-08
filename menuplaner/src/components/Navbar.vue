@@ -1,3 +1,7 @@
+<script setup>
+console.log("Hello from NavBar.vue")
+</script>
+
 <template>
     <nav>
       <ul>
@@ -6,10 +10,7 @@
         <li><router-link to="/profile">Profile</router-link></li>
       </ul>
     </nav>
-  </template>
-  
-  <script setup>
-  </script>
+</template>
   
   <style scoped>
   /* Add styles for your navigation bar here */

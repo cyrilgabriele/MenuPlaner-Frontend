@@ -1,18 +1,24 @@
 <script setup>
   import { ref } from 'vue';
   import axios from 'axios';
-  
-  const menuIdeaUser = ref('');
+  import AcceptButton from './AcceptButton.vue';
+
+  const acceptButton = ref(null)
+  const menuIdeaUser = ref('')
+  const LLMResponse = ref('')
   
   function handleMenuIdeaUser() {
-    axios.post('http://localhost:3000/menu', { 
+    axios.post('https://jsonplaceholder.typicode.com/posts', { //for debugging if rate limit is reached
+    //axios.post('http://localhost:3000/menu', { 
       title: 'MenuUser444',
       body: menuIdeaUser.value,
       userId: 444,
     })
     .then(response => {
       console.log('This is the axios response: \n', response.data);
-      menuIdeaUser.value = '';
+      LLMResponse.value = response.data.body //.content if my API is used
+      console.log("LLM response: ", LLMResponse.value)
+      menuIdeaUser.value = ''
     })
     .catch(error => {
       console.log("Error during fetch: ", error);
@@ -25,6 +31,11 @@
       <input type="text" v-model="menuIdeaUser" placeholder="Enter meal ideas">
       <button @click="handleMenuIdeaUser">Submit Ideas</button>
     </hgroup>
+    <div v-if='LLMResponse'>
+      <p>Proposed Menuplan:</p>
+      <textarea v-model='LLMResponse' readonly></textarea>
+    </div>
+    <AcceptButton :menuPlan="LLMResponse"/>
   </template>
   
   <style scoped>

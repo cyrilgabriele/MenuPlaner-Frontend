@@ -35,23 +35,7 @@
         </tbody>
       </table>
     </div>
-  </template>
+</template>
   
 <style scoped>
-  .menu-plan {
-    max-width: 600px;
-    margin: auto;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  th {
-    background-color: #f4f4f4;
-  }
 </style>

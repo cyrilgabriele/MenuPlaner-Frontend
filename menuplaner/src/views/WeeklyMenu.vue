@@ -1,5 +1,6 @@
 <script setup>
   import { reactive } from 'vue';
+  //TODO: use here the MenuTable component
   
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const menu = reactive({

@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const props = defineProps({
-    menuPlan: String
+    menuPlan: JSON
 })
 
 function handleAcceptMenu() {

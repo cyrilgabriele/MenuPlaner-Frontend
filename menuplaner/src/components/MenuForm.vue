@@ -2,6 +2,7 @@
   import { ref } from 'vue';
   import axios from 'axios';
   import AcceptButton from './AcceptButton.vue';
+  import MenuTable from './MenuTable.vue';
 
   const menuIdeaUser = ref('')
   const LLMResponse = ref('')
@@ -14,7 +15,8 @@
     })
     .then(response => {
       console.log('This is the axios response: \n', response.data);
-      LLMResponse.value = response.data  
+      //LLMResponse.value = JSON.stringify(response.data ) 
+      LLMResponse.value = response.data 
       console.log("LLM response in frontend: ", LLMResponse.value)
       menuIdeaUser.value = ''
     })
@@ -31,8 +33,8 @@
     </hgroup>
     <div v-if='LLMResponse'>
       <p>Proposed Menuplan:</p>
-      <textarea v-model='LLMResponse' readonly></textarea>
+      <MenuTable :menu='LLMResponse'/>
     </div>
-    <AcceptButton :menuPlan="LLMResponse"/>
+    <AcceptButton :menuPlan='LLMResponse'/>
   </template>
   

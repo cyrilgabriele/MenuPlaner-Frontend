@@ -3,13 +3,16 @@ import { useAuth0 } from '@auth0/auth0-vue';
 
 const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-const login = () => {
-loginWithRedirect();
-console.log("I am in LoginButton.vue ...")
+const handleLogin = () => {
+  loginWithRedirect({
+    appState: {
+      target: "/profile",
+    },
+  });
 };
 </script>
 
 <template>
-    <button @click="login">Log In</button>
+    <button @click="handleLogin">Log In</button>
 </template>
   

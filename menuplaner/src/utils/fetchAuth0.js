@@ -4,6 +4,7 @@ async function fetchAuth0 (isAuthenticated) {
     const { user } = useAuth0()
     console.log("in fetchAuth0(): isAuthenticated = ", isAuthenticated)
     console.log("is authenticated = ", isAuthenticated._value)
+    isAuthenticated = isAuthenticated._value
     if (isAuthenticated === false) {
         console.error("NOT AUTHENTICATED!")
     } else {

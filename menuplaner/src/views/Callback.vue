@@ -1,12 +1,10 @@
 <script setup>
-  import Navbar from "@/components/Navbar.vue"
+  console.log("In Callback")
 </script>
 
 <template>
-    <div class="page-layout">
-      <Navbar />
-      <div class="page-layout__content">
-      </div>
+    <div>
+      <p>Loading...</p>
     </div>
 </template>
   

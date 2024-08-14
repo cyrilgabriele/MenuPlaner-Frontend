@@ -1,11 +1,11 @@
-  
 <script setup>
 import { useAuth0 } from '@auth0/auth0-vue';
 
-const { loginWithRedirect } = useAuth0();
+const { loginWithRedirect, isAuthenticated } = useAuth0();
 
 const login = () => {
 loginWithRedirect();
+console.log("I am in LoginButton.vue ...")
 };
 </script>
 

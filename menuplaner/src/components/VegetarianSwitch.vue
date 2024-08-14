@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import SaveIntolerance from './SaveIntolerance.vue';
+
 const props = defineProps({
   modelValue: Boolean,
 });
@@ -16,11 +18,12 @@ const onToggle = () => {
 
 <template>
     <div>
-        <input type="checkbox" v-model="isVegetarian" @change="onToggle">
-        <label>Vegetarian</label>
+      <input type="checkbox" v-model="isVegetarian" @change="onToggle">
+      <label>Vegetarian</label>
     </div>
     <div>
-        <input type="text" placeholder="Tell me about an intolerance ">
+      <input type="text" placeholder="Tell me about an intolerance ">
+      <SaveIntolerance />
     </div>
     
 </template>

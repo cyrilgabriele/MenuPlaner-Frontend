@@ -8,7 +8,7 @@ const { isAuthenticated } = useAuth0();
 </script>
 
 <template>
-  <nav class="bg-gray-800 p-4">
+  <nav class="bg-gray-600 p-4">
     <ul class="flex space-x-4">
       <li><router-link to="/" class="text-white hover:text-gray-300">Home</router-link></li>
       <li><router-link to="/meal-plans" class="text-white hover:text-gray-300">Weekly Menu</router-link></li>

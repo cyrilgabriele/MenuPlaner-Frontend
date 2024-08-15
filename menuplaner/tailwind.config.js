@@ -1,10 +1,15 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: false, 
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: 'selector', 
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        'h1': '2.5rem', 
+        'h2': '2rem',   
+      }
+    },
   },
   variants: {
     extend: {},

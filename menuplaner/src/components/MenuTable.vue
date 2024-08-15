@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
+  <div class=" overflow-x-auto">
     <table class="w-full border-collapse">
       <thead>
         <tr class="text-lg">

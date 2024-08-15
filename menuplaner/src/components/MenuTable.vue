@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="meal in meals" :key="meal" class="border-t text-lg">
+        <tr v-for="meal in meals" :key="meal" class="border-t text-sm">
           <td class="p-2 font-semibold">{{ meal }}</td>
           <td v-for="day in days" :key="day" class="p-2 text-sm">
             <input 

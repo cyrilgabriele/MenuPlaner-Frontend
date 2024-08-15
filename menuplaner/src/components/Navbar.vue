@@ -8,18 +8,23 @@ const { isAuthenticated } = useAuth0();
 </script>
 
 <template>
-  <nav class="bg-teal-500 p-4">
-    <ul class="flex space-x-4">
-      <li><router-link to="/" class="text-white hover:text-gray-300">Home</router-link></li>
-      <li><router-link to="/meal-plans" class="text-white hover:text-gray-300">Weekly Menu</router-link></li>
-      <li><router-link to="/profile" class="text-white hover:text-gray-300">Profile</router-link></li>
-      <template v-if="!isAuthenticated">
-        <li><SignupButton class="text-white hover:text-gray-300" /></li>
-        <li><LoginButton class="text-white hover:text-gray-300" /></li>
-      </template>
-      <template v-if="isAuthenticated">
-        <li><LogoutButton class="text-white hover:text-gray-300" /></li>
-      </template>
-    </ul>
-  </nav>
+  <div class="w-full">
+    <nav class="bg-teal-500 p-4">
+      <div class="container mx-auto flex justify-center">
+        <!-- Navbar Items -->
+        <ul class="flex space-x-4">
+          <li><router-link to="/" class="text-white hover:text-teal-300">Home</router-link></li>
+          <li><router-link to="/meal-plans" class="text-white hover:text-teal-300">Weekly Menu</router-link></li>
+          <li><router-link to="/profile" class="text-white hover:text-teal-300">Profile</router-link></li>
+          <template v-if="!isAuthenticated">
+            <li><SignupButton /></li>
+            <li><LoginButton /></li>
+          </template>
+          <template v-if="isAuthenticated">
+            <li><LogoutButton /></li>
+          </template>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </template>

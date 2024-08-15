@@ -30,12 +30,14 @@
 
 <template>
   <div class="container mx-auto">
+    <p class="py-2">Enter your menu plan ideas in the field below. These ideas will be used to generate a customized menu plan using a language model. 
+      Simply input your thoughts, and watch as your personalized menu comes to life!</p>
     <hgroup>
       <input 
         type="text" 
         v-model="menuIdeaUser" 
         placeholder="Enter meal ideas"
-        class="w-full p-2  rounded-md text-gray-800 focus:ring-teal-500"
+        class="w-full p-2 focus:outline-none rounded-md text-gray-800"
       />
       <button 
         @click="handleMenuIdeaUser"
@@ -45,13 +47,12 @@
       </button>
     </hgroup>
 
-    <div v-if='LLMResponse' class="">
-      <p class="text-white font-semibold mb-2">Proposed Menuplan:</p>
-      <MenuTable :menu='LLMResponse' class="w-full" />
+    <div v-if='LLMResponse'>
+      <MenuTable :menu='LLMResponse'/>
     </div>
 
     <div v-if='LLMResponse' class="mt-4">
-      <AcceptButton :menuPlan='LLMResponse' class="w-full bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <AcceptButton :menuPlan='LLMResponse' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
     </div>
   </div>
 </template>

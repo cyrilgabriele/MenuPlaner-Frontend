@@ -9,7 +9,7 @@
 
 <template>
     <div>
-      <button @click="handleLogout">Log out</button>
+      <button class='bg-gray-800 rounded-md px-1' @click="handleLogout">Log out</button>
     </div>
 </template>
   

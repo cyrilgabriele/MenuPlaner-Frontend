@@ -16,6 +16,6 @@ const handleSignUp = () => {
 </script>
 
 <template>
-    <button @click="handleSignUp">Sign Up</button>
+    <button class='bg-gray-800 rounded-md px-1' @click="handleSignUp">Sign Up</button>
 </template>
   

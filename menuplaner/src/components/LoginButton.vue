@@ -13,6 +13,6 @@ const handleLogin = () => {
 </script>
 
 <template>
-    <button @click="handleLogin">Log In</button>
+    <button class='bg-gray-800 rounded-md px-1' @click="handleLogin">Log In</button>
 </template>
   

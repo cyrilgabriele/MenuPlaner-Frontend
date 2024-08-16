@@ -36,10 +36,6 @@
     <div v-if='LLMResponse'>
       <MenuTable :menu='LLMResponse'/>
     </div>
-
-    <div v-if='LLMResponse' class="mt-4">
-      <AcceptButton :menuPlan='LLMResponse' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
-    </div>
   </div>
 </template>
 

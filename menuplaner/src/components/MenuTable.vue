@@ -1,8 +1,10 @@
 <script setup>
+import AcceptButton from './AcceptButton.vue';
+
   const props = defineProps({
     menu: {
       type: JSON
-    }
+    },
   })
   
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -31,6 +33,9 @@
         </tr>
       </tbody>
     </table>
+    <div >
+      <AcceptButton :menuPlan='props.menu' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
+    </div>
   </div>
 </template>
 

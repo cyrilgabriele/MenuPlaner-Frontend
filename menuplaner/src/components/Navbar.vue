@@ -13,9 +13,9 @@ const { isAuthenticated } = useAuth0();
       <div class="container mx-auto flex justify-center">
         <!-- Navbar Items -->
         <ul class="flex space-x-4">
-          <li><router-link to="/" class="text-white hover:text-teal-300">Home</router-link></li>
-          <li><router-link to="/meal-plans" class="text-white hover:text-teal-300">Weekly Menu</router-link></li>
-          <li><router-link to="/profile" class="text-white hover:text-teal-300">Profile</router-link></li>
+          <li><router-link to="/" class=" hover:text-gray-800">Home</router-link></li>
+          <li><router-link to="/meal-plans" class=" hover:text-gray-800">Weekly Menu</router-link></li>
+          <li><router-link to="/profile" class=" hover:text-gray-800">Profile</router-link></li>
           <template v-if="!isAuthenticated">
             <li><SignupButton /></li>
             <li><LoginButton /></li>

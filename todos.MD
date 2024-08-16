@@ -1,4 +1,4 @@
-1. Refactor the handleMenuIdeaUser() in the MenuForm.vue
+1. *DONE*: Refactor the handleMenuIdeaUser() in the MenuForm.vue
     1.1 otusource the function and import it as a module
 2. Refactor the AcceptButton.vue 
     2.1 outsource the handleAcceptMenu() and import it again

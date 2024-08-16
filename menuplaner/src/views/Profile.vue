@@ -1,21 +1,19 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useAuth0 } from '@auth0/auth0-vue';
 import VegetarianSwitch from '@/components/VegetarianSwitch.vue';
-import { fetchAuth0 } from '@/utils/fetchAuth0';
+import { processAuth0User } from '@/utils/fetchAuth0';
 
-const { user, isAuthenticated, isLoading } = useAuth0();
 const userInfo = ref(null)
+const authenticationStatus = ref(false)
 
-onMounted(() => 
-  userInfo.value = fetchAuth0(isAuthenticated)
-)
+onMounted(() => {
+  processAuth0User(authenticationStatus, userInfo);
+})
 
-console.log("Hello from Profile.vue")
-console.log("userInfo.value:", userInfo)
-console.log("user = ", user)
-
-
+function handleClick() {
+  console.log("userInfo.value: ", userInfo.value)
+  console.log("authenticationStatus.value: ", authenticationStatus.value)
+}
 </script>
 
 <template>
@@ -23,7 +21,8 @@ console.log("user = ", user)
     <h1>Profile</h1>
     <p>This is your profile page.</p>
     <VegetarianSwitch/>
-    <div v-if="isAuthenticated">
+    <button @click="handleClick">CLick</button>
+    <div v-if="authenticationStatus">
       <p>is authenticated</p>
     </div>
   </div>

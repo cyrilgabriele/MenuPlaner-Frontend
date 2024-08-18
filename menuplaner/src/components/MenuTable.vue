@@ -1,18 +1,18 @@
 <script setup>
 import AcceptButton from './AcceptButton.vue';
 
-  const props = defineProps({
-    menu: {
-      type: JSON
-    },
-  })
-  
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  const meals = ['Breakfast', 'Lunch', 'Dinner'];
+const props = defineProps({
+  menu: {
+    type: Object
+  },
+})
+
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const meals = ['Breakfast', 'Lunch', 'Dinner'];
 </script>
 
 <template>
-  <div class=" overflow-x-auto">
+  <div class="overflow-x-auto">
     <table class="w-full border-collapse">
       <thead>
         <tr class="text-lg">
@@ -25,17 +25,16 @@ import AcceptButton from './AcceptButton.vue';
           <td class="p-2 font-semibold">{{ meal }}</td>
           <td v-for="day in days" :key="day" class="p-2 text-sm">
             <input 
-              class="w-full p-2 text-gray-800 border border-teal-500 rounded-md"
-              v-model="props.menu[day][meal]" 
-              placeholder="Add meal" 
+              class="w-full p-2 text-gray-800 border border-teal-500 rounded-md text-xs"
+              v-model="props.menu[day][meal].name" 
+              placeholder="Add meal name" 
             />
           </td>
         </tr>
       </tbody>
     </table>
-    <div >
+    <div>
       <AcceptButton :menuPlan='props.menu' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
     </div>
   </div>
 </template>
-

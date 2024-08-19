@@ -26,7 +26,7 @@ const meals = ['Breakfast', 'Lunch', 'Dinner'];
           <td v-for="day in days" :key="day" class="p-2 text-sm">
             <input 
               class="w-full p-2 text-gray-800 border border-teal-500 rounded-md text-xs"
-              v-model="props.menu[day][meal].name" 
+              v-model="props.menu[day][meal].title" 
               placeholder="Add meal name" 
             />
           </td>

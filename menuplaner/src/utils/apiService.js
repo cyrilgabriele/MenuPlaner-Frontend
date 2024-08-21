@@ -20,7 +20,7 @@ export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
 
 export function handleAcceptMenu(menuPlan) {
   console.log("menuPlan: ", menuPlan)
-  axios.post('http://localhost:3000/saveMenu', {
+  axios.post('http://localhost:3000/menu/saveMenu', {
       title: 'Title',
       body: menuPlan,
       userId: 444,

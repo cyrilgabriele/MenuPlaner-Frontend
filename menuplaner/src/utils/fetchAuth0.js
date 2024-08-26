@@ -10,6 +10,7 @@ export function processAuth0User(authenticationStatus, userInfo) {
     } else {
         console.log("Is authenticated");
         const userID = user.value.sub;
+        console.log("user: ", user)
         console.log("userID = ", userID);
         authenticationStatus.value = true;
         userInfo.value = userID.split('|')[1];

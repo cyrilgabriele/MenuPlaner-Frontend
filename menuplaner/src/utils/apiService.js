@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
-  axios.post('http://localhost:3000/menu/generateMenu', { 
+  axios.post('http://localhost:3000/menuplan/generateMenuplan', { 
     title: 'MenuUser444',
     body: menuIdeaUser.value,
     userId: 444,
@@ -20,7 +20,7 @@ export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
 
 export function handleAcceptMenu(menuPlan) {
   console.log("menuPlan: ", menuPlan)
-  axios.post('http://localhost:3000/menu/saveMenu', {
+  axios.post('http://localhost:3000/menuplan/saveMenuplan', {
       title: 'Title',
       body: menuPlan,
       userId: 444,

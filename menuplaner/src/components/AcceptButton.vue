@@ -1,9 +1,9 @@
 <script setup>
-import axios from 'axios';
-import { handleAcceptMenu } from '@/utils/apiService';
+import { handleAcceptMenu } from '@/utils/apiService'
 
 const props = defineProps({
-    menuPlan: JSON
+    menuPlan: JSON,
+    custom_prompt: String
 })
 
 function onAccept() {

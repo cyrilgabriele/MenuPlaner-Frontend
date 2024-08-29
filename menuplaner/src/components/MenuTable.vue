@@ -4,8 +4,11 @@ import AcceptButton from './AcceptButton.vue'
 import Modal from './Modal.vue'
 
 const props = defineProps({
-  menu: {
+  menuPlan: {
     type: Object
+  },
+  custom_prompt: {
+    type: String
   },
 })
 
@@ -16,12 +19,12 @@ const showModal = ref(false)
 const selectedMeal = ref({ title: '', description: '' })
 
 function openModal(day, meal) {
-  selectedMeal.value = props.menu[day][meal]
+  selectedMeal.value = props.menuPlan[day][meal]
   showModal.value = true
 }
 
 function closeModal() {
-  showModal.value = false; // Hide the modal
+  showModal.value = false
 }
 </script>
 
@@ -40,7 +43,7 @@ function closeModal() {
           <td v-for="day in days" :key="day" class="p-2">
             <input 
               class="w-full p-2 text-gray-800 border border-teal-500 rounded-md text-xs"
-              v-model="props.menu[day][meal].title" 
+              v-model="props.menuPlan[day][meal].title" 
               placeholder="Add meal name" 
               @click="openModal(day, meal)"
             />
@@ -50,7 +53,7 @@ function closeModal() {
     </table>
   </div>
   <div>
-    <AcceptButton :menuPlan='props.menu' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
+    <AcceptButton :menuPlan='props.menuPlan' :custom_prompt='props.custom_prompt' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
   </div>
   <Modal 
     :visible="showModal" 

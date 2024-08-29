@@ -1,8 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-  import AcceptButton from './AcceptButton.vue';
-  import MenuTable from './MenuTable.vue';
-  import { handleMenuIdeaUser } from '@/utils/apiService';
+  import { ref } from 'vue'
+  import MenuTable from './MenuTable.vue'
+  import { handleMenuIdeaUser } from '@/utils/apiService'
 
   const menuIdeaUser = ref('')
   const LLMResponse = ref('')
@@ -34,7 +33,7 @@
     </hgroup>
 
     <div v-if='LLMResponse'>
-      <MenuTable :menu='LLMResponse'/>
+      <MenuTable :menuPlan='LLMResponse' :custom_prompt='menuIdeaUser'/>
     </div>
   </div>
 </template>

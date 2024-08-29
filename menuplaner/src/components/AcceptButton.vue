@@ -7,7 +7,7 @@ const props = defineProps({
 })
 
 function onAccept() {
-    handleAcceptMenu(props.menuPlan)
+    handleAcceptMenu(props.custom_prompt, props.menuPlan)
 }
 
 </script>

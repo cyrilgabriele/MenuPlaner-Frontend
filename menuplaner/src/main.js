@@ -4,6 +4,8 @@ import App from './App.vue';
 import router from './router';
 import { createAuth0 } from '@auth0/auth0-vue';
 import './assets/index.css'
+import { createPinia } from 'pinia'
+
 
 const app = createApp(App);
 
@@ -18,4 +20,5 @@ app
       },
     })
   )
+  .use(createPinia())
   .mount("#app");

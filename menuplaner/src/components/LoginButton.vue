@@ -1,10 +1,12 @@
 <script setup>
-import { useAuth0 } from '@auth0/auth0-vue';
+import { useAuth0 } from '@auth0/auth0-vue'
+import { useUserStore } from '@/stores/userStore'
 
-const { loginWithRedirect, isAuthenticated } = useAuth0();
+const userStore = useUserStore()
+
 
 const handleLogin = () => {
-  loginWithRedirect({
+  userStore.loginWithRedirect({
     appState: {
       target: "/profile",
     },

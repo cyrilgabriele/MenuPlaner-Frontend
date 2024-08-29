@@ -1,21 +1,20 @@
 <script setup>
-import { useAuth0 } from "@auth0/auth0-vue";
+import { useUserStore } from '@/stores/userStore'
 
-const { loginWithRedirect } = useAuth0();
+const userStore = useUserStore()
 
 const handleSignUp = () => {
-  loginWithRedirect({
+  userStore.loginWithRedirect({
     appState: {
       target: "/profile",
     },
     authorizationParams: {
       screen_hint: "signup",
-    }
-  });
-};
+    },
+  })
+}
 </script>
 
 <template>
-    <button class='bg-gray-800 rounded-md px-1' @click="handleSignUp">Sign Up</button>
+  <button class='bg-gray-800 rounded-md px-1' @click="handleSignUp">Sign Up</button>
 </template>
-  

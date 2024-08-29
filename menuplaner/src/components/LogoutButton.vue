@@ -1,15 +1,15 @@
 <script setup>
-  import { useAuth0 } from '@auth0/auth0-vue';
-  
-  const { logout } = useAuth0();
-  const handleLogout = () => {
-    logout({ logoutParams: { returnTo: window.location.origin } });
-  };
+import { useUserStore } from '@/stores/userStore'
+
+const userStore = useUserStore()
+
+const handleLogout = () => {
+  userStore.logout({ logoutParams: { returnTo: window.location.origin } })
+}
 </script>
 
 <template>
-    <div>
-      <button class='bg-gray-800 rounded-md px-1' @click="handleLogout">Log out</button>
-    </div>
+  <div>
+    <button class='bg-gray-800 rounded-md px-1' @click="handleLogout">Log out</button>
+  </div>
 </template>
-  

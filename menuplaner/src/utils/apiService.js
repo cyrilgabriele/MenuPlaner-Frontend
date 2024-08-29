@@ -2,9 +2,8 @@ import axios from 'axios';
 
 export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
   axios.post('http://localhost:3000/menuplan/generateMenuplan', { 
-    title: 'MenuUser444',
-    body: menuIdeaUser.value,
-    userId: 444,
+    // TODO: manage to get this states dynamically  
+    custom_prompt: "handleMenuIdeaUser: custom_prompt hardcoded"
   })
   .then(response => {
     console.log('This is the axios response: \n', response.data);
@@ -21,9 +20,10 @@ export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
 export function handleAcceptMenu(menuPlan) {
   console.log("menuPlan: ", menuPlan)
   axios.post('http://localhost:3000/menuplan/saveMenuplan', {
-      title: 'Title',
-      body: menuPlan,
-      userId: 444,
+    // TODO: manage to get this states dynamically  
+    person_id: 1,
+      custom_prompt: "handleAcceptMenu: custom_prompt hardcoded",
+      meals: menuPlan,
   })
   .then(response => {
       console.log('Response AcceptButton: \n', response.data);

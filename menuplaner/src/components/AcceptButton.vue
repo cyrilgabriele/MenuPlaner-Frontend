@@ -1,5 +1,5 @@
 <script setup>
-import { handleAcceptMenu } from '@/utils/apiService'
+import { handleAcceptMenuplan } from '@/utils/apiService'
 
 const props = defineProps({
     menuPlan: JSON,
@@ -7,7 +7,7 @@ const props = defineProps({
 })
 
 function onAccept() {
-    handleAcceptMenu(props.custom_prompt, props.menuPlan)
+    handleAcceptMenuplan(props.custom_prompt, props.menuPlan)
 }
 
 </script>

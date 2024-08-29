@@ -1,14 +1,13 @@
 import axios from 'axios'
 
-export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
+export function generateMenuplan(menuIdeaUser, LLMResponse) {
   axios.post('http://localhost:3000/menuplan/generateMenuplan', { 
-    // TODO: manage to get this states dynamically  
     custom_prompt: menuIdeaUser
   })
   .then(response => {
-    console.log('This is the axios response: \n', response.data)
+    // console.log('This is the axios response: \n', response.data)
     LLMResponse.value = response.data
-    console.log("LLM response in frontend: ", LLMResponse.value)
+    // console.log("LLM response in frontend: ", LLMResponse.value)
   })
   .catch(error => {
     console.log("Error during fetch: ", error)
@@ -16,14 +15,14 @@ export function handleMenuIdeaUser(menuIdeaUser, LLMResponse) {
 }
 
 
-export function handleAcceptMenu(custom_prompt, menuPlan) {
+export function handleAcceptMenuplan(custom_prompt, menuPlan) {
   console.log("handleAcceptMenu: custom_prompt: ", custom_prompt)
   console.log("handleAcceptMenu: menuPlan: ", menuPlan)
   axios.post('http://localhost:3000/menuplan/saveMenuplan', {
     // TODO: manage to get this states dynamically  
     person_id: 1,
-      custom_prompt: custom_prompt,
-      meals: menuPlan,
+    custom_prompt: custom_prompt,
+    meals: menuPlan,
   })
   .then(response => {
       console.log('Response AcceptButton: \n', response.data)

@@ -1,13 +1,13 @@
 <script setup>
   import { ref } from 'vue'
   import MenuTable from './MenuTable.vue'
-  import { handleMenuIdeaUser } from '@/utils/apiService'
+  import { generateMenuplan } from '@/utils/apiService'
 
   const menuIdeaUser = ref('')
   const LLMResponse = ref('')
   
   function submitMenuIdea(){
-    handleMenuIdeaUser(menuIdeaUser, LLMResponse)
+    generateMenuplan(menuIdeaUser, LLMResponse)
   }
  
 </script>

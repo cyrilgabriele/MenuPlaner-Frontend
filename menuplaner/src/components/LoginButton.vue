@@ -1,12 +1,10 @@
 <script setup>
-import { useAuth0 } from '@auth0/auth0-vue'
-import { useUserStore } from '@/stores/userStore'
+import { useAuth0 } from '@auth0/auth0-vue';
 
-const userStore = useUserStore()
-
+const { loginWithRedirect } = useAuth0();
 
 const handleLogin = () => {
-  userStore.loginWithRedirect({
+  loginWithRedirect({
     appState: {
       target: "/profile",
     },
@@ -15,6 +13,5 @@ const handleLogin = () => {
 </script>
 
 <template>
-    <button class='bg-gray-800 rounded-md px-1' @click="handleLogin">Log In</button>
+  <button class="bg-gray-800 rounded-md px-1" @click="handleLogin">Log In</button>
 </template>
-  

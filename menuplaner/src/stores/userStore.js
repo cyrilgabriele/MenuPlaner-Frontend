@@ -1,39 +1,32 @@
 import { defineStore } from 'pinia'
-import { ref, watch, toRaw } from 'vue'
+import { ref, watch } from 'vue'
 import { useAuth0 } from '@auth0/auth0-vue'
 
 export const useUserStore = defineStore('user', () => {
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0()
+  const { user, isAuthenticated } = useAuth0()
   const person_id = ref(null)
   const isLoggedIn = ref(false)
 
-  const setPersonId = (id) => {
-    person_id.value = id
+  const updatePersonId = () => {
+    if (isAuthenticated.value && user.value && user.value.sub) {
+      person_id.value = user.value.sub
+      isLoggedIn.value = true
+      console.log('User ID set:', person_id.value)
+    } else {
+      person_id.value = null
+      isLoggedIn.value = false
+      console.log("User is not authenticated or user data is not available.")
+    }
   }
 
-  watch(isAuthenticated, (newVal) => {
-    if (newVal) {
-      const rawUser = toRaw(user.value); // Get the raw object
-      console.log('User object:', rawUser);
-      if (rawUser && rawUser.sub) {
-        setPersonId(rawUser.sub);
-        isLoggedIn.value = true;
-      } else {
-        console.error("User object does not have 'sub' property.");
-      }
-    } else {
-      setPersonId(null);
-      isLoggedIn.value = false;
-    }
+  watch([isAuthenticated, user], () => {
+    updatePersonId()
   })
 
+  updatePersonId()
+
   return {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
     person_id,
     isLoggedIn,
-    setPersonId
   }
 })

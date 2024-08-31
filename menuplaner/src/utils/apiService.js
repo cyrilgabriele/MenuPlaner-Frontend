@@ -16,12 +16,12 @@ export function generateMenuplan(menuIdeaUser, LLMResponse) {
 }
 
 
-export function handleAcceptMenuplan(person_id, custom_prompt, menuPlan) {
-  console.log("person_id: ", person_id)
+export function handleAcceptMenuplan(auth0_user_id, custom_prompt, menuPlan) {
+  console.log("auth0_user_id: ", auth0_user_id)
   console.log("handleAcceptMenu: custom_prompt: ", custom_prompt)
   console.log("handleAcceptMenu: menuPlan: ", menuPlan)
   axios.post('http://localhost:3000/menuplan/saveMenuplan', {
-    person_id: person_id,
+    auth0_user_id: auth0_user_id,
     custom_prompt: custom_prompt.value,
     meals: menuPlan,
   })

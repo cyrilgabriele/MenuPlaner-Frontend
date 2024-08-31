@@ -17,13 +17,13 @@ function onAccept() {
     return
   }
 
-  if (!userStore.person_id) {
+  if (!userStore.auth0_user_id) {
     console.error("User ID is not available.")
     return
   }
 
-  console.log("onAccept: person_id: ", userStore.person_id)
-  handleAcceptMenuplan(userStore.person_id, props.custom_prompt, props.menuPlan)
+  console.log("onAccept: auth0_user_id: ", userStore.auth0_user_id)
+  handleAcceptMenuplan(userStore.auth0_user_id, props.custom_prompt, props.menuPlan)
 }
 </script>
 

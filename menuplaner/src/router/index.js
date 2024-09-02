@@ -12,6 +12,7 @@ const routes = [
 ];
 
 const router = createRouter({
+  // TODO: BAE_URL not defined in .env...
   history: createWebHistory(import.meta.env.BASE_URL), 
   routes,
 });

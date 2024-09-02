@@ -1,6 +1,6 @@
-1. *DONE*: Refactor the handleMenuIdeaUser() in the MenuForm.vue
-    1.1 otusource the function and import it as a module
-2. *DONE*: Refactor the AcceptButton.vue 
-    2.1 outsource the handleAcceptMenu() and import it again
-3. *DONE*: Move the AcceptButton.vue into MenuTable instead of MenuForm.vue
-4. Fix that the LLM responses includes as well a title for the meal => display then in MenuTable only the Title and @click popup a new component (i.e. Meal) the whole description and the recipe => recipe should be fetched from the LLM as soon as first fetch is done.
+Create User:
+1. Create a new Endpoint to add a user aka person into the DB => work w/ postman only first!!
+2. in Callback.vue => create a user with this endpoint now here in frotend in apiService.js
+3. redirect the Signup also to pass the Callback.vue so that a user gets added 
+
+After considerations maybe better to make it in the userStore??? maybe only after signup??

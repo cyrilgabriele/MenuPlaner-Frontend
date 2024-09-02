@@ -1,10 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import MenuTable from '@/components/MenuTable.vue'
+// import MenuTable from '@/components/MenuTable.vue'
 import { getMenuplanWithMeals } from '@/utils/apiService'
 import { useUserStore } from '@/stores/userStore'
+import Modal from '@/components/Modal.vue'
 
-const menuPlan = ref('')
+const menuPlan = ref({})
 const userStore = useUserStore()
 const auth0_user_id = userStore.auth0_user_id
 const custom_prompt = "who cares?"
@@ -18,7 +19,6 @@ async function fetchWeeklyMenuData(auth0_user_id) {
   menuPlan.value = fetchedmenuPlan
 }
 
-// Ensure onMounted is correctly awaiting the async function
 onMounted(async () => {
   await fetchWeeklyMenuData(auth0_user_id)
 })
@@ -27,7 +27,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="menuPlan" class="overflow-x-auto">
+  <div v-if="userStore.isLoggedIn" class="overflow-x-auto">
     <table class="w-full border-collapse">
       <thead>
         <tr class="text-sm">
@@ -40,17 +40,19 @@ onMounted(async () => {
           <td class="p-2 font-semibold">{{ meal }}</td>
           <td v-for="day in days" :key="day" class="p-2">
             <input 
+              v-if="menuPlan[day] && menuPlan[day][meal]"
               class="w-full p-2 text-gray-800 border border-teal-500 rounded-md text-xs"
               v-model="menuPlan[day][meal].title" 
-              placeholder="Add meal name" 
+              placeholder="Add meal name"
             />
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div v-else>
-    Loading...
+  <div class="text-center py-4" v-else>
+    <h1>Login to see your customized menu plan</h1>
   </div>
 </template>
+
 

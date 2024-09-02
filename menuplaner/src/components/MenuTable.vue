@@ -19,6 +19,7 @@ const showModal = ref(false)
 const selectedMeal = ref({ title: '', description: '' })
 
 function openModal(day, meal) {
+  console.log("MenuTable: openModal: props.menuPlan: ", props.menuPlan)
   selectedMeal.value = props.menuPlan[day][meal]
   showModal.value = true
 }

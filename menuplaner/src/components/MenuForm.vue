@@ -2,17 +2,19 @@
   import { ref } from 'vue'
   import MenuTable from './MenuTable.vue'
   import { generateMenuplan } from '@/utils/apiService'
+  import AcceptButton from './AcceptButton.vue'
+  import { useUserStore } from '@/stores/userStore'
+  import LoginButton from './LoginButton.vue'
+  import SignupButton from './SignupButton.vue'
 
   const menuIdeaUser = ref('')
-  const LLMResponse = ref('')
-  
+  const menuPlan = ref('')
+  const userStore = useUserStore()
+
   async function submitMenuIdea() {
     console.log("submitMenuIdea: menuIdeaUser.value: ", menuIdeaUser.value)
-    LLMResponse.value = await generateMenuplan(menuIdeaUser)
+    menuPlan.value = await generateMenuplan(menuIdeaUser)
   }
-
-  
- 
 </script>
 
 
@@ -34,8 +36,15 @@
         Submit Ideas
       </button>
     </hgroup>
-
-    <div v-if='LLMResponse'><MenuTable :menuPlan='LLMResponse' :custom_prompt='menuIdeaUser'/></div>
+    <div v-if='menuPlan'>
+      <MenuTable :menuPlan='menuPlan' :custom_prompt='menuIdeaUser'/>
+      <AcceptButton v-if="userStore.isLoggedIn" :menuPlan='menuPlan' :custom_prompt='menuIdeaUser' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
+      <div v-else>
+        <h1 class="text-center px-4">Please log in or sign up to save your personalized menu plan!</h1>
+        <SignupButton class="mt-2 w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none"/>
+        <LoginButton class="mt-2 w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none"/>
+      </div>
+    </div>
   </div>
 </template>
 

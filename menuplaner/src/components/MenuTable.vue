@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import AcceptButton from './AcceptButton.vue'
 import Modal from './Modal.vue'
 
 const props = defineProps({
@@ -19,7 +18,7 @@ const showModal = ref(false)
 const selectedMeal = ref({ title: '', description: '' })
 
 function openModal(day, meal) {
-  console.log("MenuTable: openModal: props.menuPlan: ", props.menuPlan)
+  // console.log("MenuTable: openModal: props.menuPlan: ", props.menuPlan)
   selectedMeal.value = props.menuPlan[day][meal]
   showModal.value = true
 }
@@ -52,9 +51,6 @@ function closeModal() {
         </tr>
       </tbody>
     </table>
-  </div>
-  <div>
-    <AcceptButton :menuPlan='props.menuPlan' :custom_prompt='props.custom_prompt' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />
   </div>
   <Modal 
     :visible="showModal" 

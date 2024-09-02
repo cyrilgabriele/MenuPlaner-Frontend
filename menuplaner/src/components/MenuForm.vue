@@ -6,9 +6,12 @@
   const menuIdeaUser = ref('')
   const LLMResponse = ref('')
   
-  function submitMenuIdea(){
-    generateMenuplan(menuIdeaUser, LLMResponse)
+  async function submitMenuIdea() {
+    console.log("submitMenuIdea: menuIdeaUser.value: ", menuIdeaUser.value)
+    LLMResponse.value = await generateMenuplan(menuIdeaUser)
   }
+
+  
  
 </script>
 
@@ -32,9 +35,7 @@
       </button>
     </hgroup>
 
-    <div v-if='LLMResponse'>
-      <MenuTable :menuPlan='LLMResponse' :custom_prompt='menuIdeaUser'/>
-    </div>
+    <div v-if='LLMResponse'><MenuTable :menuPlan='LLMResponse' :custom_prompt='menuIdeaUser'/></div>
   </div>
 </template>
 

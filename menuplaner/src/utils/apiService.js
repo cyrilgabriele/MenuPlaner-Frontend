@@ -1,19 +1,17 @@
 import axios from 'axios'
 
-export function generateMenuplan(menuIdeaUser, LLMResponse) {
+export async function generateMenuplan(menuIdeaUser) {
   console.log("generateMenuplan: menuIdeaUser: ", menuIdeaUser.value)
-  axios.post('http://localhost:3000/menuplan/generateMenuplan', { 
-    custom_prompt: menuIdeaUser.value
-  })
-  .then(response => {
-    // console.log('This is the axios response: \n', response.data)
-    // TODO: return the value/object instead of directly set the value here => keep function pure
-    LLMResponse.value = response.data
-    // console.log("LLM response in frontend: ", LLMResponse.value)
-  })
-  .catch(error => {
-    console.log("Error during fetch: ", error)
-  })
+  try {
+    const response = await axios.post('http://localhost:3000/menuplan/generateMenuplan', { 
+      custom_prompt: menuIdeaUser.value
+    })
+    console.log('generateMenuplan: response: \n', response.data)
+    return response.data 
+  } catch (error) {
+    console.error("in generateMenuplan: Error during fetch: ", error)
+    return null
+  }
 }
 
 export function handleAcceptMenuplan(auth0_user_id, custom_prompt, menuPlan) {
@@ -45,30 +43,16 @@ export function getMenuplan(auth0_user_id) {
 })
 }
 
-/*
-export async function getMenuplanWithMeals(auth0_user_id) {
-  axios.post('http://localhost:3000/menuplan/getMenuplanWithMeals', {
-    auth0_user_id: auth0_user_id
-  })
-  .then(response => {
-    console.log('Response getMenuplan: \n', response.data)
-  })
-  .then(response => {return response.data})
-  .catch(error => {
-    console.log("in getMenuplan: Error during fetch: ", error)
-})
-}
-*/
 export async function getMenuplanWithMeals(auth0_user_id) {
   console.log("getMenuplanWithMeals: auth0_user_id: ", auth0_user_id)
   try {
     const response = await axios.post('http://localhost:3000/menuplan/getMenuplanWithMeals', {
       auth0_user_id: auth0_user_id
-    });
-    console.log('Response getMenuplan: \n', response.data);
-    return response.data; // Return the data so it can be accessed in your component
+    })
+    console.log('Response getMenuplan: \n', response.data)
+    return response.data // Return the data so it can be accessed in your component
   } catch (error) {
-    console.error("in getMenuplan: Error during fetch: ", error);
-    return null; // Handle the error by returning null or throwing an error if preferred
+    console.error("in getMenuplan: Error during fetch: ", error)
+    return null // Handle the error by returning null or throwing an error if preferred
   }
 }

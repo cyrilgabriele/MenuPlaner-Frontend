@@ -29,7 +29,7 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="overflow-x-auto">
+  <div v-if="menuPlan" class="overflow-x-auto">
     <table class="w-full border-collapse">
       <thead>
         <tr class="text-sm">

@@ -1,29 +1,24 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-import VegetarianSwitch from '@/components/VegetarianSwitch.vue';
-import { processAuth0User } from '@/utils/fetchAuth0';
+import { useUserStore } from '@/stores/userStore'
+import VegetarianSwitch from '@/components/VegetarianSwitch.vue'
 
-const userInfo = ref(null)
-const authenticationStatus = ref(false)
+const userstore = useUserStore()
+const nickname = userstore.nickname
 
-onMounted(() => {
-  processAuth0User(authenticationStatus, userInfo);
-})
-
-function handleClick() {
-  console.log("userInfo.value: ", userInfo.value)
-  console.log("authenticationStatus.value: ", authenticationStatus.value)
-}
 </script>
 
 <template>
-  <div>
-    <h1>Profile</h1>
-    <p>This is your profile page.</p>
-    <VegetarianSwitch/>
-    <button @click="handleClick">CLick</button>
-    <div v-if="authenticationStatus">
-      <p>is authenticated</p>
+  <div class="">
+    <h1 class="text-h1">Profile</h1>
+    <div v-if="userstore.isLoggedIn">
+      <h2 class="text-h2 mx-auto">Hi, {{ nickname }}</h2>
+      <div class="text-center">
+        <VegetarianSwitch/>
+        <button @click="handleClick">CLick</button>
+      </div>
+    </div>
+    <div class="overflow-x-auto text-center" v-else>
+      <h2 class="text-h2 py-4">Please login first</h2>
     </div>
   </div>
 </template>

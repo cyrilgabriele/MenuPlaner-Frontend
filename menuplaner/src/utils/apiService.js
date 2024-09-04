@@ -50,9 +50,49 @@ export async function getMenuplanWithMeals(auth0_user_id) {
       auth0_user_id: auth0_user_id
     })
     console.log('Response getMenuplan: \n', response.data)
-    return response.data // Return the data so it can be accessed in your component
+    return response.data 
   } catch (error) {
-    console.error("in getMenuplan: Error during fetch: ", error)
-    return null // Handle the error by returning null or throwing an error if preferred
+    console.error("in getMenuplanWithMeals: Error during fetch: ", error)
+    throw error
+  }
+}
+
+export async function createPerson(person_name) {
+  try {
+    const response = await axios.post('http://localhost:3000/person/createPerson', {
+      person_name: person_name
+    })
+    return response.data
+  } catch (error) {
+    console.error("in createPerson: Error during fetch: ", error)
+    throw error
+  }
+}
+
+export async function getUser(auth0_user_id) {
+  try {
+    const response = await axios.post('http://localhost:3000/user_account/getUser', {
+      auth0_user_id: auth0_user_id,
+    })
+    console.log("createPerson: response: ", response)
+    return response.data
+  } catch (error) {
+    console.error("in createUser: Error during fetch: ", error)
+    throw error
+  }
+}
+
+export async function createUser(person_id, auth0_user_id, nickname) {
+  try {
+    const response = await axios.post('http://localhost:3000/user_account/createUser', {
+      person_id: person_id,
+      auth0_user_id: auth0_user_id,
+      nickname: nickname
+    })
+    console.log("createPerson: response: ", response)
+    return response.data
+  } catch (error) {
+    console.error("in createUser: Error during fetch: ", error)
+    throw error
   }
 }

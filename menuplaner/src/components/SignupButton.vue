@@ -1,18 +1,18 @@
 <script setup>
-import { useAuth0 } from '@auth0/auth0-vue';
+import { useAuth0 } from '@auth0/auth0-vue'
 
-const { loginWithRedirect } = useAuth0();
+const { loginWithRedirect} = useAuth0()
 
-const handleSignUp = () => {
+const handleSignUp = async () => {
   loginWithRedirect({
     appState: {
-      target: "/profile",
+      target: "/",
     },
     authorizationParams: {
       screen_hint: "signup",
     }
-  });
-};
+  })
+}
 </script>
 
 <template>

@@ -9,11 +9,19 @@
 
   const menuIdeaUser = ref('')
   const menuPlan = ref('')
+  const showLoading = ref(false)
   const userStore = useUserStore()
 
   async function submitMenuIdea() {
     console.log("submitMenuIdea: menuIdeaUser.value: ", menuIdeaUser.value)
-    menuPlan.value = await generateMenuplan(menuIdeaUser)
+    showLoading.value = true
+    try {
+      menuPlan.value = await generateMenuplan(menuIdeaUser)
+    } catch (error) {
+      console.error('Error generating menu plan:', error)
+    } finally {
+      showLoading.value = false 
+    }
   }
 </script>
 
@@ -36,6 +44,10 @@
         Submit Ideas
       </button>
     </hgroup>
+    <div v-if="showLoading" class="text-center my-4">
+      <p>Loading your personalized menu plan, please wait...</p>
+    </div>
+
     <div v-if='menuPlan'>
       <MenuTable :menuPlan='menuPlan' :custom_prompt='menuIdeaUser'/>
       <AcceptButton v-if="userStore.isLoggedIn" :menuPlan='menuPlan' :custom_prompt='menuIdeaUser' class="w-full bg-teal-500 p-2 rounded-md hover:bg-teal-600 focus:outline-none" />

@@ -14,6 +14,7 @@ const handleUser = async () => {
     console.log("In Callback: User authenticated")
     const auth0_user_id = userStore.auth0_user_id
     const existingUser = await getUser(auth0_user_id)
+    console.log("handleUser: existingUser: ", existingUser)
 
     if (existingUser) {
       console.log("User already exists in the database", existingUser)

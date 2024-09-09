@@ -29,12 +29,13 @@
 <template>
   <div class="container mx-auto">
     <p class="py-2">Enter your menu plan ideas in the field below. These ideas will be used to generate a customized menu plan using a language model. 
-      Simply input your thoughts, and watch as your personalized menu comes to life!</p>
+      Simply input your thoughts, and watch as your personalized menu comes to life!<br>
+      E.g.: 'Create a high-protein menu plan' or 'Plan a week's meals with vegetarian options'</p>
     <hgroup>
       <input 
         type="text" 
         v-model="menuIdeaUser" 
-        placeholder="Enter meal ideas"
+        placeholder="Enter your ideas!"
         class="w-full p-2 focus:outline-none rounded-md text-gray-800"
       />
       <button 
